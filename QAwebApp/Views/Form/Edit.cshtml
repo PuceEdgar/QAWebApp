@@ -1,0 +1,374 @@
+﻿
+
+@model QAwebApp.Models.FormModel
+@{
+    ViewBag.Title = "Edit";
+}
+<h2>Edit</h2>
+<h3>@ViewData["error"]</h3>
+@using (Html.BeginForm("Edit", "Form", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal container-fluid">
+        <h4>Form</h4>
+        <hr />
+        <div class="container-fluid row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Division, htmlAttributes: new { @class = "control-label col-md-3" })
+
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Division, new { htmlAttributes = new { @class = "form-control" } })
+
+                        @Html.HiddenFor(model => model.Division)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Bul1, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Bul1, new { htmlAttributes = new { @class = "form-control" } })
+
+                        @Html.HiddenFor(model => model.Bul1)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Bul2, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Bul2, new { htmlAttributes = new { @class = "form-control" } })
+
+                        @Html.HiddenFor(model => model.Bul2)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Bul3, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Bul3, new { htmlAttributes = new { @class = "form-control" } })
+
+                        @Html.HiddenFor(model => model.Bul3)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control" } })
+
+                        @Html.HiddenFor(model => model.Country)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AssessmentPeriod, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.AssessmentPeriod, new { htmlAttributes = new { @class = "form-control" } })
+
+                        @Html.HiddenFor(model => model.AssessmentPeriod)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UnitAssessor, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.UnitAssessor, new { htmlAttributes = new { @class = "form-control" } })
+
+                        @Html.HiddenFor(model => model.UnitAssessor)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DateOfAssessment, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.DateOfAssessment, new { htmlAttributes = new { @class = "form-control" } })
+
+                        @Html.HiddenFor(model => model.DateOfAssessment)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3>Unit Responsible</h3>
+                <div class="form-group row">
+                    <div class="col-md-2 control-label">
+                        @Html.LabelFor(model => model.UnitResponsible.Name)
+                    </div>
+
+                    <div class="col-md-3 control-label">
+                        @Html.DisplayFor(m => m.UnitResponsible.Name)
+                        @Html.HiddenFor(m => m.UnitResponsibleId)
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-2 control-label">
+                        @Html.LabelFor(model => model.UnitResponsible.Email)
+                    </div>
+
+                    <div class="col-md-3 control-label">
+                        @Html.DisplayFor(model => model.UnitResponsible.Email)
+
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <br />
+        <hr />
+        <div class="form-group row">
+
+            <div class="col-md-2">
+                <h4>Grading Criteria</h4>
+            </div>
+
+            <div class="col-md-1">
+                <h4>Max Score</h4>
+            </div>
+
+            <div class="col-md-4">
+                <h4>
+                    Group Risk comment to scoring
+                    (Mandatory to fill in)
+                </h4>
+            </div>
+
+            <div class="col-md-1">
+                <h4>Score</h4>
+            </div>
+
+            <div class="col-md-4">
+                <h4>Unit comment to score</h4>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col-md-2">
+                <p>1. Business Continuity Management</p>
+            </div>
+
+            <div class="col-md-1">
+                <p>4</p>
+            </div>
+
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.BCMGrComment, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.BCMGrComment)
+            </div>
+
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.BCMScore, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.BCMScore)
+            </div>
+
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.BCMUnitComment, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.BCMUnitComment)
+            </div>
+
+        </div>
+        <div class="form-group row">
+
+            <div class="col-md-2">
+                <p>2 Incident Reporting and Handling</p>
+            </div>
+
+            <div class="col-md-1">
+                <p>4</p>
+            </div>
+
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.IRHGrComment, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.IRHGrComment)
+            </div>
+
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.IRHScore, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.IRHScore)
+            </div>
+
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.IRHUnitComment, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.IRHUnitComment)
+            </div>
+
+        </div>
+        <div class="form-group row">
+
+            <div class="col-md-2">
+                <p>3. New Product Approval Process</p>
+            </div>
+
+            <div class="col-md-1">
+                <p>4</p>
+            </div>
+
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.NPAPGrComment, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.NPAPGrComment)
+            </div>
+
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.NPAPScore, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.NPAPScore)
+            </div>
+
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.NPAPUnitComment, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.NPAPUnitComment)
+            </div>
+
+        </div>
+        <div class="form-group row">
+
+            <div class="col-md-2">
+                <p>4. ORSA/RTSA</p>
+            </div>
+
+            <div class="col-md-1">
+                <p>4</p>
+            </div>
+
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.ORSARTSAGrComment, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.ORSARTSAGrComment)
+            </div>
+
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.ORSARTSAScore, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.ORSARTSAScore)
+            </div>
+
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.ORSARTSAUnitComment, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.ORSARTSAUnitComment)
+            </div>
+
+        </div>
+        <div class="form-group row">
+
+            <div class="col-md-2">
+                <p>5. To what extent are KRI's implemented</p>
+            </div>
+
+            <div class="col-md-1">
+                <p>4</p>
+            </div>
+
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.KRIGrComment, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.KRIGrComment)
+            </div>
+
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.KRIScore, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.KRIScore)
+            </div>
+
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.KRIUnitComment, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.KRIUnitComment)
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <div class="col-md-2">
+                <p>6. To what extent are Internal Control checklists implemented</p>
+            </div>
+
+            <div class="col-md-1">
+                <p>4</p>
+            </div>
+
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.ICCGrComment, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.ICCGrComment)
+            </div>
+
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.ICCScore, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.ICCScore)
+            </div>
+
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.ICCUnitComment, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.ICCUnitComment)
+            </div>
+
+        </div>
+        <div class="form-group row">
+
+            <div class="col-md-2">
+                <p>Total score / comment</p>
+            </div>
+
+            <div class="col-md-1">
+                <p>24</p>
+            </div>
+
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.SummaryGrComment, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.SummaryGrComment)
+            </div>
+
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.TotalScore, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.TotalScore)
+            </div>
+
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.SummaryUnitComment, new { htmlAttributes = new { @class = "form-control", @id = "lg" } })
+
+                @Html.HiddenFor(model => model.SummaryUnitComment)
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-6 col-md-10">
+                @Html.HiddenFor(m => m.ManagerSid)
+                <input type="submit" value="Save" class="btn btn-default" onhover="background-color: yellow;" />
+                <a class="btn btn-default" href="@Url.Action("Index", "Form")">Cancel</a>
+            </div>
+        </div>
+    </div>
+
+
+
+}
+
+
+
+<div>
+
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+

@@ -1,0 +1,147 @@
+﻿@model QAwebApp.Models.FormModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h4>Form</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Division)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Division)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Bul1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Bul1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Bul2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Bul2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Bul3)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Bul3)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.AssessmentPeriod)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AssessmentPeriod)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitAssessor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UnitAssessor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfAssessment)
+        </dt>
+        <dd>
+            
+            @Html.DisplayFor(model => model.DateOfAssessment)
+        </dd>
+    </dl>
+
+    <table style="width:100%">
+        <tr>
+            <th>Grading Criteria</th>
+            <th>Max score</th>
+            <th>
+                Group Risk comment to scoring
+                (Mandatory to fill in)
+            </th>
+            <th>Score</th>
+            <th>Unit comment to score</th>
+        </tr>
+        <tr>
+            <td>1. Business Continuity Management</td>
+            <td>4</td>
+            <td>@Html.DisplayFor(m => m.BCMGrComment)</td>
+            <td>@Html.DisplayFor(m => m.BCMScore)</td>
+            <td>@Html.DisplayFor(m => m.BCMUnitComment)</td>
+        </tr>
+        <tr>
+            <td>2 Incident Reporting and Handling</td>
+            <td>4</td>
+            <td>@Html.DisplayFor(m => m.IRHGrComment)</td>
+            <td>@Html.DisplayFor(m => m.IRHScore)</td>
+            <td>@Html.DisplayFor(m => m.IRHUnitComment)</td>
+        </tr>
+        <tr>
+            <td>3. New Product Approval Process</td>
+            <td>4</td>
+            <td>@Html.DisplayFor(m => m.NPAPGrComment)</td>
+            <td>@Html.DisplayFor(m => m.NPAPScore)</td>
+            <td>@Html.DisplayFor(m => m.NPAPUnitComment)</td>
+        </tr>
+        <tr>
+            <td>4. ORSA/RTSA </td>
+            <td>4</td>
+            <td>@Html.DisplayFor(m => m.ORSARTSAGrComment)</td>
+            <td>@Html.DisplayFor(m => m.ORSARTSAScore)</td>
+            <td>@Html.DisplayFor(m => m.ORSARTSAUnitComment)</td>
+        </tr>
+        <tr>
+            <td>5. To what extent are KRI's implemented</td>
+            <td>4</td>
+            <td>@Html.DisplayFor(m => m.KRIGrComment)</td>
+            <td>@Html.DisplayFor(m => m.KRIScore)</td>
+            <td>@Html.DisplayFor(m => m.KRIUnitComment)</td>
+        </tr>
+        <tr>
+            <td>6. To what extent are Internal Control checklists implemented</td>
+            <td>4</td>
+            <td>@Html.DisplayFor(m => m.ICCGrComment)</td>
+            <td>@Html.DisplayFor(m => m.ICCScore)</td>
+            <td>@Html.DisplayFor(m => m.ICCUnitComment)</td>
+        </tr>
+        <tr>
+            <td>Total score / comment</td>
+            <td>24</td>
+            <td>@Html.DisplayFor(m => m.SummaryGrComment)</td>
+            <td>@Html.DisplayFor(m => m.TotalScore)</td>
+            <td>@Html.DisplayFor(m => m.SummaryUnitComment)</td>
+        </tr>
+    </table>
+
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitResponsible.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UnitResponsible.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitResponsible.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UnitResponsible.Email)
+        </dd>
+    </dl>
+
+
+    <div class="form-actions no-color">
+
+        @Html.ActionLink("Back to List", "Index")
+
+    </div>
+
+</div>

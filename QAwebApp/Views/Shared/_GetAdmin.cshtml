@@ -1,0 +1,49 @@
+﻿@model QAwebApp.Models.AdminModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<div asp-validation-summary="All"></div>
+@*<form method="post" data-ajax="true" data-ajax-url="/form/addadmin" data-ajax-update="#panel2">*@
+@using (Html.BeginForm("AddAdmin", "Form", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <h4>AdminModel</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Sid)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Sid)
+                @Html.HiddenFor(m => m.Sid)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+                @Html.HiddenFor(m => m.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+                @Html.HiddenFor(m => m.Email)
+            </dd>
+        </dl>
+    </div>
+
+    <input type="submit" value="Add Admin" class="btn btn-default" />
+    <a class="btn btn-default" href="@Url.Action("Index", "Form")">Cancel</a>
+    @*</form>*@
+
+}
+@*<div id="panel2"></div>*@
+<br />
+<h2>@ViewData["error"]</h2>
+
+
+
+

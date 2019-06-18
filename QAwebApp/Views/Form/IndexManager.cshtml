@@ -1,0 +1,53 @@
+﻿@model QAwebApp.ViewModels.FormViewModel
+
+
+
+<h2>@Model.Title</h2>
+<h3>Hello @Model.AppUser</h3>
+
+
+
+
+
+
+<table class="table">
+    <tr>
+        <td>
+            Division
+        </td>
+        <td>
+            Country
+        </td>
+        <td>
+            Unit Responsible
+        </td>
+        <td>
+            Email Status
+        </td>
+    </tr>
+    @foreach (var item in Model.Forms)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.Division)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.UnitResponsible.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.EmailSent)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "EditManager", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+              
+
+            </td>
+        </tr>
+    }
+</table>

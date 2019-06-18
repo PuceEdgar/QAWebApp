@@ -1,0 +1,114 @@
+﻿
+@model QAwebApp.ViewModels.FormViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm("Create", "Form", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <h2>@ViewBag.Message</h2>
+    <div class="form-horizontal">
+        <h4>Add form</h4>
+        <hr />
+        <div id="error"></div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <p class="control-label col-md-2">Division</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Form.Division, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Form.Division, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <p class="control-label col-md-2">Country</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Form.Country, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Form.Country, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <p class="control-label col-md-2">Assessment Period</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Form.AssessmentPeriod, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Form.AssessmentPeriod, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <p class="control-label col-md-2">Date of Assessment</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Form.DateOfAssessment, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                @Html.ValidationMessageFor(model => model.Form.DateOfAssessment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*<div class="form-group">
+                <p class="control-label col-md-2">Date of Birth</p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.personModel.dob, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                    @Html.ValidationMessageFor(model => model.personModel.dob, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <p class="control-label col-md-2">Phone number</p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.personModel.phone_number, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.personModel.phone_number, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+
+        @*<form name="address_form" id="address_form">
+
+                <div class="form-group">
+                    <p class="control-label col-md-2">Address</p><br /><br />
+                    @Html.ValidationMessageFor(model => model.personModel.primary_address, "", new { @class = "text-danger" })
+                    @for (int i = 0; i < 3; i++)
+                    {
+                        <div class="row">
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.allAddresses[i].address1, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.address.address1, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-4">
+                                <input type="radio" name="primary" value="@i" /> Primary address
+
+                            </div>
+                        </div><br />
+                    }
+
+                </div>
+            </form>*@
+
+        <div class="form-group row btn-group ">
+            <div class=" col-md-6">
+                <a class="btn btn-default" href="@Url.Action("Index", "Form")">Cancel</a>
+            </div>
+
+            <div class=" col-md-6 ">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+            @*<div class=" col-md-6 ">
+                    <input type="submit" value="Create" class="btn btn-default" onclick="return addressCheck()" />
+                </div>*@
+        </div>
+    </div>
+
+}
+
+<!--<div>
+    @Html.ActionLink("Cancel", "Index")
+</div>-->
+@section Scripts {
+  <script type="text/javascript">
+      $(function () {
+          // Bootstrap DateTimePicker v3
+          $('#Form_DateOfAssessment').datetimepicker({
+              pickTime: false
+          });
+          // Bootstrap DateTimePicker v4
+          $('#Form_DateOfAssessment').datetimepicker({
+              format: 'DD/MM/YYYY'
+          });
+      });
+    </script>
+}
